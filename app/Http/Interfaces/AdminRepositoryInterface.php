@@ -4,6 +4,9 @@ namespace App\Http\Interfaces;
 
 interface AdminRepositoryInterface
 {
-    public function login($request);
-    public function logoutApi();
+    public function GetAdmin();
+    public function StoreAdmin($request);
+    public function UpdateAdmin($id,$request);
+    public function ShowAdmin($id);
+    public function deleteAdmin($id);   
 }

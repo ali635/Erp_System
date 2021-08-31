@@ -22,6 +22,10 @@ Route::group(['prefix' => 'admin'],function (){
     Route::post('login', 'API\AdminController@index');
     // you masy login in system 
     Route::middleware('auth:admin-api')->group(function(){
-        Route::post('logout','API\AdminController@logout');
+        Route::post('logout','API\AdminAuthController@logout');
+        Route::apiResource('Receipt','API\ReceiptController');
+        Route::apiResource('Fee','API\FeeController');
+        Route::apiResource('Admin','API\AdminController');
+        
     });
 });
