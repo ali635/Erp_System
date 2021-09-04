@@ -17,7 +17,7 @@ class AdminAuthController extends Controller
 
     public function index(Request $request)
     {
-        return $this->Admin->;
+        return $this->Admin->login($request);
     }
     
     public function logout()

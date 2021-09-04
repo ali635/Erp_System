@@ -19,13 +19,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['prefix' => 'admin'],function (){
-    Route::post('login', 'API\AdminController@index');
+    Route::post('login', 'API\AdminAuthController@index');
     // you masy login in system 
     Route::middleware('auth:admin-api')->group(function(){
         Route::post('logout','API\AdminAuthController@logout');
-        Route::apiResource('Receipt','API\ReceiptController');
-        Route::apiResource('Fee','API\FeeController');
-        Route::apiResource('Admin','API\AdminController');
-        
+        Route::apiResource('Receipt','API\ReceiptController')->middleware('can:receipts');
+        Route::apiResource('Fee','API\FeeController')->middleware('can:fees');
+        Route::apiResource('Admin','API\AdminController')->middleware('can:admins');
+        Route::apiResource('Store','API\StoreController')->middleware('can:stores');
+        Route::apiResource('Product','API\ProductController')->middleware('can:products');
+        Route::apiResource('Tax','API\TaxController')->middleware('can:taxes');
+        Route::apiResource('Role','API\RoleController')->middleware('can:roles');
     });
+
 });

@@ -27,7 +27,8 @@ class AdminRepository implements AdminRepositoryInterface
             $Admin = new Admin();
             $Admin->name = $request->name;
             $Admin->email = $request->email;
-            $Admin->password = Hash::make($request->password);;
+            $Admin->role_id = $request->role_id;
+            $Admin->password = Hash::make($request->password);
             $Admin->save();
             return $this->sendResponse(new ResourcesAdmin($Admin) ,'تم اضافة الادمن  بنجاح ' );
         }
@@ -53,6 +54,7 @@ class AdminRepository implements AdminRepositoryInterface
             $Admin = Admin::findOrFail($id);
             $Admin->name = $request->name;
             $Admin->email = $request->email;
+            $Admin->role_id= $request->role_id;
             $Admin->password = Hash::make($request->password);;
             $Admin->save();
             return $this->sendResponse(new ResourcesAdmin($Admin) ,'تم تعديل الادمن بنجاح ' );
