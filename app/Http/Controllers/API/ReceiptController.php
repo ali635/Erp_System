@@ -19,7 +19,7 @@ class ReceiptController extends Controller
     {
         return $this->Receipt->GetReceipt();
     }
-    public function store(Request $request)
+    public function store(RequestReceipt $request)
     {
         return $this->Receipt->StoreReceipt($request);
     }
@@ -27,7 +27,7 @@ class ReceiptController extends Controller
     {
         return $this->Receipt->ShowReceipt($id);
     }
-    public function update($id,Request $request)
+    public function update($id,RequestReceipt $request)
     {
         return $this->Receipt->UpdateReceipt($id,$request);
     }

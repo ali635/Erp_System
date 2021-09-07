@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Interfaces;
-use App\Http\Requests\RequestRole;
+use App\Http\Requests\Role as RoleRequest;
 
 interface RoleRepositoryInterface
 {
     public function GetRole();
-    public function StoreRole($request);
-    public function UpdateRole($id,$request);
+    public function StoreRole(RoleRequest $request);
+    public function UpdateRole($id,RoleRequest $request);
     public function ShowRole($id);
     public function deleteRole($id);
 }

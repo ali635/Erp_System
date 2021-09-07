@@ -24,10 +24,10 @@ class RequestReceipt extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|numeric',
+            'user_id' => 'required|numeric|exists:users,id',
             'amount' => 'required|numeric',
             'payment_type' => 'required|string',
-            'year' => 'required|date|date_format:Y-m-d',
+            'year' => 'required|date',
             'description' => 'required|string',
         ];
     }

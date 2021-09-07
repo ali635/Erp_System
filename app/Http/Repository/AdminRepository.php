@@ -4,6 +4,7 @@ namespace App\Http\Repository;
 
 use App\Http\Interfaces\AdminRepositoryInterface;
 use App\Http\Resources\Admin as ResourcesAdmin;
+use App\Http\Requests\Admin as AdminRequest;
 use App\Models\Admin;
 use App\Traits\ResponseAPI;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class AdminRepository implements AdminRepositoryInterface
           'تم ارسال جميع المشرفين');
     }
 
-    public function StoreAdmin($request)
+    public function StoreAdmin(AdminRequest $request)
     {
         try {
             $Admin = new Admin();
@@ -48,7 +49,7 @@ class AdminRepository implements AdminRepositoryInterface
         }
     }
 
-    public function UpdateAdmin($id,$request) 
+    public function UpdateAdmin($id,AdminRequest $request) 
     {
         try {
             $Admin = Admin::findOrFail($id);

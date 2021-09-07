@@ -6,10 +6,7 @@ use App\Http\Interfaces\RoleRepositoryInterface;
 use App\Traits\ResponseAPI;
 use App\Http\Resources\Role as RoleResource;
 use App\Models\Role;
-use Carbon\Carbon;
-use Validator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
+use App\Http\Requests\Role as RoleRequest;
 
 class RoleRepository implements RoleRepositoryInterface
 {
@@ -22,7 +19,7 @@ class RoleRepository implements RoleRepositoryInterface
           'تم ارسال جميع سندات الصرف');
     }
 
-    public function StoreRole($request)
+    public function StoreRole(RoleRequest $request)
     {
         try {
             $role = new Role();
@@ -47,7 +44,7 @@ class RoleRepository implements RoleRepositoryInterface
         }
     }
 
-    public function UpdateRole($id,$request) 
+    public function UpdateRole($id,RoleRequest $request) 
     {
         try {
             $role = Role::findOrFail($id);

@@ -23,7 +23,7 @@ class ReceiptRepository implements ReceiptRepositoryInterface
           'تم ارسال جميع سندات القبض');
     }
 
-    public function StoreReceipt($request)
+    public function StoreReceipt(RequestReceipt $request)
     {
         try {
             $Receipts = new Receipt();
@@ -51,7 +51,7 @@ class ReceiptRepository implements ReceiptRepositoryInterface
         }
     }
 
-    public function UpdateReceipt($id,$request) 
+    public function UpdateReceipt($id,RequestReceipt $request) 
     {
         try {
             $Receipts = Receipt::findOrFail($id);

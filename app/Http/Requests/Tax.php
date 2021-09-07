@@ -13,7 +13,7 @@ class Tax extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class Tax extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required|string',
+            'tax_rate'=>'required|numeric',
         ];
     }
 }

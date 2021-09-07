@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Interfaces\RoleRepositoryInterface;
+use App\Http\Requests\Role as RoleRequest;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -18,7 +19,7 @@ class RoleController extends Controller
     {
         return $this->Role->GetRole();
     }
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         return $this->Role->StoreRole($request);
     }
@@ -26,7 +27,7 @@ class RoleController extends Controller
     {
         return $this->Role->ShowRole($id);
     }
-    public function update($id,Request $request)
+    public function update($id,RoleRequest $request)
     {
         return $this->Role->UpdateRole($id,$request);
     }

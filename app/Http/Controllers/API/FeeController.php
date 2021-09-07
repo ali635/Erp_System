@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Interfaces\FeeRepositoryInterface;
+use App\Http\Requests\Fee as FeeRequest;
 use Illuminate\Http\Request;
 
 class FeeController extends Controller
@@ -18,7 +19,7 @@ class FeeController extends Controller
     {
         return $this->Fee->GetFee();
     }
-    public function store(Request $request)
+    public function store(FeeRequest $request)
     {
         return $this->Fee->StoreFee($request);
     }
@@ -26,7 +27,7 @@ class FeeController extends Controller
     {
         return $this->Fee->ShowFee($id);
     }
-    public function update($id,Request $request)
+    public function update($id,FeeRequest $request)
     {
         return $this->Fee->UpdateFee($id,$request);
     }

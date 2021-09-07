@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Interfaces\AdminRepositoryInterface;
+use App\Http\Requests\Admin as AdminRequest;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -17,7 +18,7 @@ class AdminController extends Controller
     {
         return $this->Admin->GetAdmin();
     }
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
         return $this->Admin->StoreAdmin($request);
     }
@@ -25,7 +26,7 @@ class AdminController extends Controller
     {
         return $this->Admin->ShowAdmin($id);
     }
-    public function update($id,Request $request)
+    public function update($id,AdminRequest $request)
     {
         return $this->Admin->UpdateAdmin($id,$request);
     }

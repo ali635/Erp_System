@@ -5,6 +5,7 @@ namespace App\Http\Repository;
 use App\Http\Interfaces\StoreRepositoryInterface;
 use App\Traits\ResponseAPI;
 use App\Http\Resources\Store as StoreResource;
+use App\Http\Requests\Store as StoreRequest;
 use App\Models\Store;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class StoreRepository implements StoreRepositoryInterface
           'تم ارسال جميع المستودعات');
     }
 
-    public function StoreStore($request)
+    public function StoreStore(StoreRequest $request)
     {
         try 
         {
@@ -49,7 +50,7 @@ class StoreRepository implements StoreRepositoryInterface
         }
     }
 
-    public function UpdateStore($id,$request) 
+    public function UpdateStore($id,StoreRequest $request) 
     {
         try 
         {

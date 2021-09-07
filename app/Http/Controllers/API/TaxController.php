@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Interfaces\TaxRepositoryInterface;
+use App\Http\Requests\Tax as TaxRequest;
 use Illuminate\Http\Request;
 
 class TaxController extends Controller
@@ -18,7 +19,7 @@ class TaxController extends Controller
     {
         return $this->Tax->GetTax();
     }
-    public function store(Request $request)
+    public function store(TaxRequest $request)
     {
         return $this->Tax->StoreTax($request);
     }
@@ -26,7 +27,7 @@ class TaxController extends Controller
     {
         return $this->Tax->ShowTax($id);
     }
-    public function update($id,Request $request)
+    public function update($id,TaxRequest $request)
     {
         return $this->Tax->UpdateTax($id,$request);
     }

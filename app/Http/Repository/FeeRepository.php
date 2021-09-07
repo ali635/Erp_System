@@ -6,6 +6,7 @@ use App\Http\Interfaces\FeeRepositoryInterface;
 use App\Traits\ResponseAPI;
 use App\Http\Resources\Fee as FeeResource;
 use App\Models\Fee;
+use App\Http\Requests\Fee as FeeRequest;
 use Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +22,7 @@ class FeeRepository implements FeeRepositoryInterface
           'تم ارسال جميع سندات الصرف');
     }
 
-    public function StoreFee($request)
+    public function StoreFee(FeeRequest $request)
     {
         try {
             $Fees = new Fee();
@@ -49,7 +50,7 @@ class FeeRepository implements FeeRepositoryInterface
         }
     }
 
-    public function UpdateFee($id,$request) 
+    public function UpdateFee($id,FeeRequest $request) 
     {
         try {
             $Fees = Fee::findOrFail($id);

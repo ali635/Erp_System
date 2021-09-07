@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Interfaces\StoreRepositoryInterface;
+use App\Http\Requests\Store as StoreRequest;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -18,7 +19,7 @@ class StoreController extends Controller
     {
         return $this->Store->GetStore();
     }
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         return $this->Store->StoreStore($request);
     }

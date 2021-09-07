@@ -5,6 +5,7 @@ namespace App\Http\Repository;
 use App\Http\Interfaces\TaxRepositoryInterface;
 use App\Traits\ResponseAPI;
 use App\Http\Resources\Tax as TaxResource;
+use App\Http\Requests\Tax as TaxRequest;
 use App\Models\Tax;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class TaxRepository implements TaxRepositoryInterface
           'تم ارسال جميع الضرائب');
     }
 
-    public function StoreTax($request)
+    public function StoreTax(TaxRequest $request)
     {
         try {
             $Tax = new Tax();
@@ -46,7 +47,7 @@ class TaxRepository implements TaxRepositoryInterface
         }
     }
 
-    public function UpdateTax($id,$request) 
+    public function UpdateTax($id,TaxRequest $request) 
     {
         try {
             $Tax = Tax::findOrFail($id);

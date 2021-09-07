@@ -5,6 +5,7 @@ namespace App\Http\Repository;
 use App\Http\Interfaces\ProductRepositoryInterface;
 use App\Traits\ResponseAPI;
 use App\Http\Resources\Product as ProductResource;
+use App\Http\Requests\Product as ProductRequest;
 use App\Models\Product;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class ProductRepository implements ProductRepositoryInterface
           'تم ارسال جميع سندات الصرف');
     }
 
-    public function StoreProduct($request)
+    public function StoreProduct(ProductRequest $request)
     {
         try {
             $Product = new Product();
@@ -64,7 +65,7 @@ class ProductRepository implements ProductRepositoryInterface
         }
     }
 
-    public function UpdateProduct($id,$request) 
+    public function UpdateProduct($id,ProductRequest $request) 
     {
         try {
             $Product = Product::findOrFail($id);
