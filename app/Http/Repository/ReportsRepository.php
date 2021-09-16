@@ -28,3 +28,4 @@ class  ReportsRepository implements ReportsInterface {
     }
 
  }
+
